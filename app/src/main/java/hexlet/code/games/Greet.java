@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Greet {
     public static String greeting(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name? ");
+        System.out.println("May I have your name?");
 
         String userName = scanner.nextLine();
 
