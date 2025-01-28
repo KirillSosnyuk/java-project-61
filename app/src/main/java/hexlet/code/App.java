@@ -27,13 +27,10 @@ public class App {
     public static void main(String[] args) {
         String userChoice = getUserChoice();
         System.out.println();
-        if (userChoice.equals("0")) {
-            System.out.println("Goodbye!");
-        } else if (userChoice.equals("1")) {
-            Greet.greeting(SCANNER);
-        }
 
         switch (userChoice) {
+            case "0" -> System.out.println("Goodbye!");
+            case "1" -> Greet.greeting(SCANNER);
             case "2" -> Even.evenGame(SCANNER);
             case "3" -> Calc.calcGame(SCANNER);
             case "4" -> Gcd.gcdGame(SCANNER);
@@ -48,7 +45,6 @@ public class App {
     private static String getUserChoice() {
         System.out.print(MENU_TEXT);
         System.out.print("Your choice: ");
-        System.out.println();
         return SCANNER.nextLine();
     }
 }

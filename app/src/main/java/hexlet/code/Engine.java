@@ -6,12 +6,14 @@ import java.util.Scanner;
 
 public class Engine {
 
+    private static final int MAX_QUESTIONS = 3;
+
     private static boolean isCorrect(String userAnswer, String correctAnswer, String userName) {
         boolean right = userAnswer.equals(correctAnswer);
         if (right) {
             System.out.println("Correct!");
         } else {
-            System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!\n",
+            System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!",
                     userAnswer, correctAnswer, userName);
         }
         return right;
@@ -41,7 +43,7 @@ public class Engine {
     }
 
     public static void gameCycle(Scanner scanner, String userName, String game) {
-        int questionRemained = 3;
+        int questionRemained = MAX_QUESTIONS;
         boolean continueGame = true;
 
         while (questionRemained != 0 && continueGame) {
