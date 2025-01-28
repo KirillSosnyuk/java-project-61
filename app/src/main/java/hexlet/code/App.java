@@ -2,14 +2,18 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Greet;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 
 public class App {
     private static final Scanner SCANNER = new Scanner(System.in);
 
     private static final String MENU_TEXT = """
-            
             Please enter the game number and press Enter:
             1 - Greet
             2 - Even

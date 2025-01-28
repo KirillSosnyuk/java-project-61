@@ -21,7 +21,7 @@ public class Even {
         String userName = Greet.greeting(scanner);
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        Engine.gameCycle(scanner, userName,"Even");
+        Engine.gameCycle(scanner, userName, "Even");
 
     }
 }

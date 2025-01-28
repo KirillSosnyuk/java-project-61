@@ -26,11 +26,12 @@ public class Prime {
         int generatedNumber = generateNumber();
         return new String[]{String.valueOf(generatedNumber), isPrime(generatedNumber) ? "yes" : "no"};
     }
+
     public static void primeGame(Scanner scanner) {
         String userName = Greet.greeting(scanner);
         System.out.println("Answer 'yes' if the number is prime, otherwise answer 'no'.");
 
-        Engine.gameCycle(scanner, userName,"Prime");
+        Engine.gameCycle(scanner, userName, "Prime");
     }
 
 
