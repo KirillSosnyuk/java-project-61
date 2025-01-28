@@ -1,7 +1,8 @@
 package hexlet.code;
 
-import java.util.Random;
+import hexlet.code.games.*;
 import java.util.Scanner;
+
 
 public class Engine {
 
@@ -16,7 +17,7 @@ public class Engine {
         return right;
     }
 
-    private static String askQuestion(String expression, Scanner scanner) {
+    private static String askQuestion(Scanner scanner, String expression) {
         System.out.println("Question: " + expression);
         System.out.print("Your answer: ");
         return scanner.nextLine().trim().toLowerCase();
@@ -34,67 +35,32 @@ public class Engine {
     }
 
 
-    private static int generateNumber(int start, int end) {
-        return new Random().nextInt(start, end);
-    }
-
-    private static String[] generateExpression() {
-
-        String sign = new String[]{"+", "-", "*"}[generateNumber(0, 3)];
-        int firstNumber;
-        int secondNumber;
-        String fullExpression;
-
-        String[] result;
-        result = switch (sign) {
-            case "*" -> {
-                firstNumber = generateNumber(1, 16);
-                secondNumber = generateNumber(1, 16);
-                fullExpression = firstNumber + " * " + secondNumber;
-                yield new String[]{fullExpression, String.valueOf(firstNumber * secondNumber)};
-            }
-            case "+" -> {
-                firstNumber = generateNumber(1, 101);
-                secondNumber = generateNumber(1, 101);
-                fullExpression = firstNumber + " + " + secondNumber;
-                yield new String[]{fullExpression, String.valueOf(firstNumber + secondNumber)};
-            }
-            case "-" -> {
-                firstNumber = generateNumber(1, 101);
-                secondNumber = generateNumber(1, 101);
-                fullExpression = firstNumber + " - " + secondNumber;
-                yield new String[]{fullExpression, String.valueOf(firstNumber - secondNumber)};
-            }
-            default -> throw new IllegalStateException("Unknown error while generating expression");
-        };
-        return result;
-    }
-
     private static String[] generate(String currentGame) {
         String[] generatedDigits;
 
         generatedDigits = switch (currentGame) {
             case "Even" -> {
-                int generatedNumber = generateNumber(1, 101);
+                int generatedNumber = Even.generateNumber(1, 101);
                 yield new String[]{String.valueOf(generatedNumber), generatedNumber % 2 == 0 ? "yes" : "no"};
             }
 
-            case "Calc" -> generateExpression();
+            case "Calc" -> Calc.generateExpression();
+            case "GCD" -> Gcd.generateNumbers();
 
             default -> throw new IllegalStateException("Unexpected value: " + currentGame);
         };
         return generatedDigits;
     }
 
-    public static void gameCycle(Scanner scanner, String userName, String game) {
-
+    public static void gameCycle(Scanner scanner,  String game) {
+        String userName = greetUser(scanner);
         int questionRemained = 3;
         boolean continueGame = true;
 
         while (questionRemained != 0 && continueGame) {
             String[] createAnswer = generate(game);
 
-            String userAnswer = askQuestion(createAnswer[0], scanner);
+            String userAnswer = askQuestion(scanner, createAnswer[0]);
 
             continueGame = isCorrect(userAnswer, createAnswer[1], userName);
             questionRemained--;
