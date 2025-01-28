@@ -1,11 +1,6 @@
 package hexlet.code;
 
 
-import hexlet.code.games.Even;
-import hexlet.code.games.Calc;
-import hexlet.code.games.Gcd;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 
@@ -29,16 +24,15 @@ public class Engine {
     }
 
 
-
     private static String[] generate(String currentGame) {
         String[] generatedDigits;
 
         generatedDigits = switch (currentGame) {
-            case "Even" -> Even.generateEvenNumber();
-            case "Calc" -> Calc.generateExpression();
-            case "GCD" -> Gcd.generateNumbers();
-            case "Progression" -> Progression.generateProgression();
-            case "Prime" -> Prime.generatePrimeNumber();
+            case "Even" -> Generate.generateEvenNumber();
+            case "Calc" -> Generate.generateExpression();
+            case "GCD" -> Generate.generateGcdNumbers();
+            case "Progression" -> Generate.generateProgression();
+            case "Prime" -> Generate.generatePrimeNumber();
 
             default -> throw new IllegalStateException("Unexpected value: " + currentGame);
         };
