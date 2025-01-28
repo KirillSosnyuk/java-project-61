@@ -9,7 +9,7 @@ public class Greet {
 
         String userName = scanner.nextLine();
 
-        System.out.println("Hello, " + userName + "!");
+        System.out.println("Hello, " + userName + "!\n");
 
         return userName;
 

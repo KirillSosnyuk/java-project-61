@@ -16,6 +16,7 @@ public class App {
             3 - Calc
             4 - GCD
             5 - Progression
+            6 - Prime
             0 - Exit
             """;
 
@@ -35,6 +36,7 @@ public class App {
                 case "3" -> Calc.calcGame(SCANNER);
                 case "4" -> Gcd.gcdGame(SCANNER);
                 case "5" -> Progression.progressionGame(SCANNER);
+                case "6" -> Prime.primeGame(SCANNER);
                 default -> System.out.println("Invalid choice. Please try again.");
             }
 

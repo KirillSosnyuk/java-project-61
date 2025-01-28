@@ -34,6 +34,7 @@ public class Engine {
             case "Calc" -> Calc.generateExpression();
             case "GCD" -> Gcd.generateNumbers();
             case "Progression" -> Progression.generateProgression();
+            case "Prime" -> Prime.generatePrimeNumber();
 
             default -> throw new IllegalStateException("Unexpected value: " + currentGame);
         };
