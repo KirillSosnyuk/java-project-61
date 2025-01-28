@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import java.util.Scanner;
+
 import hexlet.code.games.*;
 
 
@@ -14,6 +15,7 @@ public class App {
             2 - Even
             3 - Calc
             4 - GCD
+            5 - Progression
             0 - Exit
             """;
 
@@ -32,11 +34,13 @@ public class App {
                 case "2" -> Even.evenGame(SCANNER);
                 case "3" -> Calc.calcGame(SCANNER);
                 case "4" -> Gcd.gcdGame(SCANNER);
+                case "5" -> Progression.progressionGame(SCANNER);
                 default -> System.out.println("Invalid choice. Please try again.");
             }
 
         }
     }
+
     private static String getUserChoice() {
         System.out.println(MENU_TEXT);
         System.out.print("Your choice: ");

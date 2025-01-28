@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import hexlet.code.games.*;
+
 import java.util.Scanner;
 
 
@@ -23,46 +24,32 @@ public class Engine {
         return scanner.nextLine().trim().toLowerCase();
     }
 
-    public static String greetUser(Scanner scanner) {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("What is your name? ");
-
-        String userName = scanner.nextLine();
-
-        System.out.println("Hello, " + userName + "!");
-
-        return userName;
-    }
 
 
     private static String[] generate(String currentGame) {
         String[] generatedDigits;
 
         generatedDigits = switch (currentGame) {
-            case "Even" -> {
-                int generatedNumber = Even.generateNumber(1, 101);
-                yield new String[]{String.valueOf(generatedNumber), generatedNumber % 2 == 0 ? "yes" : "no"};
-            }
-
+            case "Even" -> Even.generateEvenNumber();
             case "Calc" -> Calc.generateExpression();
             case "GCD" -> Gcd.generateNumbers();
+            case "Progression" -> Progression.generateProgression();
 
             default -> throw new IllegalStateException("Unexpected value: " + currentGame);
         };
+
         return generatedDigits;
     }
 
-    public static void gameCycle(Scanner scanner,  String game) {
-        String userName = greetUser(scanner);
+    public static void gameCycle(Scanner scanner, String userName, String game) {
         int questionRemained = 3;
         boolean continueGame = true;
 
         while (questionRemained != 0 && continueGame) {
-            String[] createAnswer = generate(game);
+            String[] createExpressionAndCorrectAnswer = generate(game);
+            String userAnswer = askQuestion(scanner, createExpressionAndCorrectAnswer[0]);
 
-            String userAnswer = askQuestion(scanner, createAnswer[0]);
-
-            continueGame = isCorrect(userAnswer, createAnswer[1], userName);
+            continueGame = isCorrect(userAnswer, createExpressionAndCorrectAnswer[1], userName);
             questionRemained--;
 
         }

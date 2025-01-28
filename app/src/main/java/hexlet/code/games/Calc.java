@@ -43,9 +43,10 @@ public class Calc {
     }
 
     public static void calcGame(Scanner scanner) {
+        String userName = Greet.greeting(scanner);
         System.out.println("What is the result of the expression?");
 
-        Engine.gameCycle(scanner, "Calc");
+        Engine.gameCycle(scanner, userName, "Calc");
 
     }
 }
