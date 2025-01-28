@@ -35,7 +35,10 @@ public class App {
             }
 
             switch (userChoice) {
-                case "1" -> Greet.greeting(SCANNER);
+                case "1" -> {
+                    Greet.greeting(SCANNER);
+                    break;
+                }
                 case "2" -> Even.evenGame(SCANNER);
                 case "3" -> Calc.calcGame(SCANNER);
                 case "4" -> Gcd.gcdGame(SCANNER);
