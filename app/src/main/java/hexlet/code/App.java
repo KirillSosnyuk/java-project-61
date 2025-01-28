@@ -13,7 +13,7 @@ public class App {
             Please enter the game number and press Enter:
             1 - Greet
             2 - Even
-            3 - Game 3
+            3 - Calc
             4 - Game 4
             0 - Exit
             """;
@@ -30,8 +30,8 @@ public class App {
 
             switch (userChoice) {
                 case "1" -> Greet.greeting(SCANNER);
-                case "2" -> System.out.println(Even.evenGame(SCANNER));
-                case "3" -> Greet.greeting(SCANNER);
+                case "2" -> Even.evenGame(SCANNER);
+                case "3" -> Calc.calcGame(SCANNER);
                 case "4" -> Greet.greeting(SCANNER);
                 default -> System.out.println("Invalid choice. Please try again.");
             }
