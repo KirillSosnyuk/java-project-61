@@ -49,7 +49,7 @@ public class App {
 
     private static String getUserChoice() {
         System.out.print(MENU_TEXT);
-        System.out.print("Your choice: ");
+        System.out.println("Your choice: ");
         return SCANNER.nextLine();
     }
 }
