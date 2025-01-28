@@ -32,13 +32,14 @@ public class App {
                 System.out.println("Goodbye!");
                 SCANNER.close();
                 break;
+            } else if (userChoice.equals("1")) {
+                Greet.greeting(SCANNER);
+                SCANNER.close();
+                break;
             }
 
             switch (userChoice) {
-                case "1" -> {
-                    Greet.greeting(SCANNER);
-                    break;
-                }
+
                 case "2" -> Even.evenGame(SCANNER);
                 case "3" -> Calc.calcGame(SCANNER);
                 case "4" -> Gcd.gcdGame(SCANNER);
