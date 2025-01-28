@@ -25,35 +25,30 @@ public class App {
             """;
 
     public static void main(String[] args) {
-        while (true) {
-            String userChoice = getUserChoice();
-            System.out.println();
-            if (userChoice.equals("0")) {
-                System.out.println("Goodbye!");
-                SCANNER.close();
-                break;
-            } else if (userChoice.equals("1")) {
-                Greet.greeting(SCANNER);
-                SCANNER.close();
-                break;
-            }
-
-            switch (userChoice) {
-
-                case "2" -> Even.evenGame(SCANNER);
-                case "3" -> Calc.calcGame(SCANNER);
-                case "4" -> Gcd.gcdGame(SCANNER);
-                case "5" -> Progression.progressionGame(SCANNER);
-                case "6" -> Prime.primeGame(SCANNER);
-                default -> System.out.println("Invalid choice. Please try again.");
-            }
-
+        String userChoice = getUserChoice();
+        System.out.println();
+        if (userChoice.equals("0")) {
+            System.out.println("Goodbye!");
+        } else if (userChoice.equals("1")) {
+            Greet.greeting(SCANNER);
         }
+
+        switch (userChoice) {
+            case "2" -> Even.evenGame(SCANNER);
+            case "3" -> Calc.calcGame(SCANNER);
+            case "4" -> Gcd.gcdGame(SCANNER);
+            case "5" -> Progression.progressionGame(SCANNER);
+            case "6" -> Prime.primeGame(SCANNER);
+            default -> System.out.println("Invalid choice. Please try again.");
+        }
+
+        SCANNER.close();
     }
 
     private static String getUserChoice() {
         System.out.print(MENU_TEXT);
-        System.out.println("Your choice: ");
+        System.out.print("Your choice: ");
+        System.out.println();
         return SCANNER.nextLine();
     }
 }
