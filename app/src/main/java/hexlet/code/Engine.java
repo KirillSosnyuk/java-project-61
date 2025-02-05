@@ -1,12 +1,22 @@
 package hexlet.code;
 
 
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
+import java.util.Random;
 import java.util.Scanner;
 
 
 public class Engine {
 
     private static final int MAX_QUESTIONS = 3;
+
+    public static int generateNumber(int start, int end) {
+        return new Random().nextInt(start, end);
+    }
 
     private static boolean isCorrect(String userAnswer, String correctAnswer, String userName) {
         boolean right = userAnswer.equals(correctAnswer);
@@ -30,11 +40,11 @@ public class Engine {
         String[] generatedDigits;
 
         generatedDigits = switch (currentGame) {
-            case "Even" -> Generate.generateEvenNumber();
-            case "Calc" -> Generate.generateExpression();
-            case "GCD" -> Generate.generateGcdNumbers();
-            case "Progression" -> Generate.generateProgression();
-            case "Prime" -> Generate.generatePrimeNumber();
+            case "Even" -> Even.generateEvenNumber();
+            case "Calc" -> Calc.generateExpression();
+            case "GCD" -> Gcd.generateGcdNumbers();
+            case "Progression" -> Progression.generateProgression();
+            case "Prime" -> Prime.generatePrimeNumber();
 
             default -> throw new IllegalStateException("Unexpected value: " + currentGame);
         };
@@ -54,6 +64,7 @@ public class Engine {
             questionRemained--;
 
         }
+
         if (continueGame) {
             System.out.println("Congratulations, " + userName + "!");
         }
